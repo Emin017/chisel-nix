@@ -47,6 +47,9 @@ stdenv.mkDerivation {
     export SOURCE_DATE_EPOCH=1669810380
     find $out -type f -name '*.jar' -exec '${add-determinism}/bin/add-determinism' -j "$NIX_BUILD_CORES" '{}' ';'
 
+    # find the docs/*.jar file and remove them, cause they are not reproducible
+    find $out -type f -name 'chisel_2.13-javadoc.jar' -exec rm -f {} \;
+
     runHook postInstall
   '';
 }
