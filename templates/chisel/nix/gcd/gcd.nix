@@ -28,7 +28,7 @@ let
         if stdenv.hostPlatform.isDarwin then
           "sha256-wXDmafSEoJxg1mv6uleKtRDCuFuTdEt+FmiH6NO7anc="
         else
-          "sha256-vmuJyLQrgAe2ffMNxzKKUygk4WGoxHjq0cR1o+wZ0u8=";
+          "sha256-0njVE5NYrQef94ryPY1B9c5h4c2B422A9RfB+FdsdI4=";
       publishPhase = "mill -i unipublish.publishLocal";
       nativeBuildInputs = [ git ];
     };
@@ -62,7 +62,7 @@ let
           if stdenv.hostPlatform.isDarwin then
             "sha256-saHZcLBulNESco16mqwgiPndFA/V+4uexnqgLCinuWs="
           else
-            "sha256-MA8Yx99ItVRhNPB/LigwCaTMywrJF3JEYv3fSeWdeNk=";
+            "sha256-w8ZiCtdK/dFd9/e1FbosnFlv+iltQ29ehsj8nWnYkNY=";
       };
 
       editable = self.overrideAttrs (_: {
