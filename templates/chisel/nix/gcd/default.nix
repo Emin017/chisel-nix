@@ -10,6 +10,8 @@ let
   dpiLibName = "gcdemu";
 in
 {
+  # Chisel
+  chisel-out = scope.callPackage ./chisel-out.nix { };
   # RTL
   gcd-compiled = scope.callPackage ./gcd.nix { target = designTarget; };
   elaborate = scope.callPackage ./elaborate.nix {
