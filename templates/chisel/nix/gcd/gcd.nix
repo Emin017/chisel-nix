@@ -28,8 +28,11 @@ let
         if stdenv.hostPlatform.isDarwin then
           "sha256-wXDmafSEoJxg1mv6uleKtRDCuFuTdEt+FmiH6NO7anc="
         else
-          "sha256-0njVE5NYrQef94ryPY1B9c5h4c2B422A9RfB+FdsdI4=";
-      publishPhase = "mill -i unipublish.publishLocal";
+          "sha256-fuPwXvcCne3bMGkgDHVQjKJfw23cq0PK6t4EuDkhsNM=";
+      publishPhase = ''
+        mill -i show unipublish.scalaCompilerClasspath
+        mill -i unipublish.publishLocal
+      '';
       nativeBuildInputs = [ git ];
     };
 
@@ -60,9 +63,13 @@ let
         millDepModules = [ chisel ];
         millDepsHash =
           if stdenv.hostPlatform.isDarwin then
-            "sha256-saHZcLBulNESco16mqwgiPndFA/V+4uexnqgLCinuWs="
+            "sha256-wS/f8e7DxQGtAypfK3SVI81N0BqTxaPCUKrm2AdUEXE="
           else
-            "sha256-w8ZiCtdK/dFd9/e1FbosnFlv+iltQ29ehsj8nWnYkNY=";
+            "sha256-9AvcYRLklhFFVq6b2S1zjM60yZpW0ql27kBq6dHcBQ0=";
+        preparePhase = ''
+          mill -i __.prepareOffline
+          mill -i __.scalaCompilerClasspath
+        '';
       };
 
       editable = self.overrideAttrs (_: {
