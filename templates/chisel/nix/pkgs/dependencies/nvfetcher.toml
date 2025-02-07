@@ -1,4 +1,4 @@
 [chisel]
-src.git = "https://github.com/unlsycn/chisel"
-src.branch = "mill-bump"
-fetch.github = "unlsycn/chisel"
+src.git = "https://github.com/Emin017/chisel"
+src.branch = "dev/offlineBuild"
+fetch.github = "Emin017/chisel"
